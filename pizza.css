@@ -1,0 +1,66 @@
+body
+{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black; 
+    padding-left: 600px;
+    padding-right: 600px;
+    line-height: 200%; 
+    text-align: center;  
+
+    background-image: url('pizzaria.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+h1{
+    border-radius: 20px;
+    background-color: #d29636;
+    color:black;
+    line-height: 200%;
+    font-family: Georgia, 'Times New Roman', serif;
+    text-indent: 1em;
+}
+
+h2
+{
+    border-radius: 20px;
+    background-color: #d29636;
+    color:black;
+    line-height: 200%;
+    font-family: Georgia, 'Times New Roman', serif;
+    text-indent: 1em;
+}
+
+form,
+p
+{
+    color: white;
+    font-size: x-large;
+}
+
+input{
+        background-color: white;
+        border-radius: 10px;
+}
+
+.Botao 
+ {
+    border-radius: 15px;
+    color: rgb(0, 0, 0);
+    background-color: white;
+}
+footer{
+    color: white;
+    font-size: larger;
+}
+
+.a{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+.error {
+    background-color: red;
+}

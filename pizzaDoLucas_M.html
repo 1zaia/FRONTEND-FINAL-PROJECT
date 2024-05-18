@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="pizza.css">
+<script src="pizza.js"></script>
+<title>Cadastro Pedidos</title>
+</head>
+<body>
+    <caption><h1>Cadastro Pedidos</h1></caption>
+    <main>
+    <form id="orderForm">
+        <hr>
+        <p>
+            <p>Tamanho da pizza:</p>
+            <label><input type="radio" name="tamanho" value="grande"> Grande</label><br>
+            <label><input type="radio" name="tamanho" value="medio"> Média</label><br>
+            <label><input type="radio" name="tamanho" value="pequena"> Pequena</label><br>
+        </p>
+        <label for="sabor1">Sabor 1:</label>
+        <select name="sabor1" id="sabor1">
+            <option value="">Selecione...</option>
+            <option value="Calabresa">Calabresa</option>
+            <option value="Frango">Frango</option>
+            <option value="Portuguesa">Portuguesa</option>
+            <option value="Bauru">Bauru</option>
+            <option value="Atum">Atum</option>
+            <option value="4 queijos">4 Queijos</option>
+        </select>
+        <label for="sabor2">Sabor 2:</label>
+        <select name="sabor2" id="sabor2">
+            <option value="Manter sabor 1">Manter Sabor</option>
+            <option value="Calabresa">Calabresa</option>
+            <option value="Frango">Frango</option>
+            <option value="Portuguesa">Portuguesa</option>
+            <option value="Bauru">Bauru</option>
+            <option value="Atum">Atum</option>
+            <option value="4 queijos">4 Queijos</option>
+        </select>
+
+        <p><label for="bebida">Bebida:</label>
+        <select name="bebida" id="bebida">
+            <option value="nenhuma">Sem bebida</option>
+            <option value="CocaCola">Coca Cola 2L</option>
+            <option value="Guarana">Guarana 2L</option>
+            <option value="Dolly">Dolly 2L</option>
+            <option value="Brahma">Brahma 350 mL</option>
+        </select>
+
+
+        <p><label for="pagamento">Forma de pagamento:</label>
+            <select name="pagamento" id="pagamento">
+                <option value="">Selecione...</option>
+                <option value="dinheiro">Dinheiro</option>
+                <option value="credito">Cartão de Credito</option>
+                <option value="debito">Cartão de Debito</option>
+            </select>
+
+        <p>
+            <input class="Botao" type="button" value="Cadastrar" onclick="validarPedido()">
+        </p>
+    </form>
+    </main>
+
+    <footer>
+        <hr>
+        copyright &copy;  pizza hub 2024
+    </footer>
+</body>
+</html>

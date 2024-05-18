@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="pizza.css">
+<script src="pizza.js"></script>
+<title>Formulário de Endereço</title>
+</head>
+<body>
+<div class="container">
+  <h1>Informe seu Endereço</h1>
+  <hr>
+  <form id="addressForm">
+    <label for="street">Rua:</label>
+    <input type="text" id="street" name="street" required><br><br>
+    <label for="bairro">Bairro:</label>
+    <input type="text" id="bairro" name="bairro" required><br><br>
+    <label for="number">Número:</label>
+    <input type="text" id="number" name="number" required><br><br>
+    <label for="city">Cidade:</label>
+    <input type="text" id="city" name="city" required><br><br>
+    <label for="state">Estado:</label>
+    <input type="text" id="state" name="state" required><br><br>
+    <label for="CEP">CEP:</label>
+    <input type="text" id="CEP" name="CEP" required><br><br>
+    <input class="Botao" type="button" value="Cadastrar" onclick="validarEndereco()">
+  </form>
+  <p id="result"></p>
+</div>
+<footer>
+    <hr>
+    copyright &copy;  pizza hub 2024
+</footer>
+</body>
+</html>

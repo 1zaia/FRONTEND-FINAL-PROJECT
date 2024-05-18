@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="pizza.css">
+<script src="pizza.js"></script>
+<title>Cadastro de Franquias</title>
+</head>
+<body>
+    <form id="franchiseForm" action="#" method="post">
+        <h2>Cadastro de Franquias</h2>
+        <hr>
+        <p><label>Nome: <input type="text" id="name"></label></p>
+        <p><label>Email: <input type="email" id="email"></label></p>
+        <p><label>Cidade: <input type="text" id="cidade"></label></p>
+        <p><label>Estado: 
+            <select id="estado" name="estado" required>
+                <option value="">Selecione...</option>
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrito Federal</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraíba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
+            </select>
+        </label></p>
+        <p><input class="Botao" type="submit" value="Cadastrar" onclick="validarCadastro()"></p>
+    </form>
+    <footer>
+        <hr>
+        copyright &copy;  pizza hub 2024
+    </footer>
+</body>
+</html>

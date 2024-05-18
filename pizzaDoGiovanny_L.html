@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="pizza.css">
+<title>Formulário do Fornecedor</title>
+</head>
+<body>
+    <h1>Formulário do Fornecedor:</h1>
+    <form id="supplierForm">
+        <label for="name">Nome:</label><br>
+        <input type="text" id="name" name="Nome"><br>
+        <label for="company">CNPJ:</label><br>
+        <input type="text" id="company" name="CNPJ"><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="Email"><br>
+        <label for="phone">Telefone:</label><br>
+        <input type="tel" id="phone" name="Telefone"><br>
+        <label for="address">Endereço:</label><br>
+        <input type="text" id="address" name="Endereço"><br>
+        <label for="city">Cidade:</label><br>
+        <input type="text" id="city" name="Cidade"><br>
+        <label for="state">Estado:</label><br>
+        <input type="text" id="state" name="Estado"><br>
+        <label for="zip">CEP:</label><br>
+        <input type="text" id="zip" name="CEP"><br>
+
+        <h2>Produtos:</h2>
+        <hr>
+        <p>Selecione os ingredientes:</p>
+        <hr>
+        <ul>
+            <input type="checkbox" id="ingredient1" name="ingredient1" value="Queijo"> Queijo<br>
+            <input type="checkbox" id="ingredient2" name="ingredient2" value="Pepperoni"> Pepperoni<br>
+            <input type="checkbox" id="ingredient3" name="ingredient3" value="Mussarela"> Mussarela<br>
+            <input type="checkbox" id="ingredient4" name="ingredient4" value="Bacon"> Bacon <br>
+            <input type="checkbox" id="ingredient5" name="ingredient5" value="Cebola"> Cebola <br>
+            <input type="checkbox" id="ingredient6" name="ingredient6" value="Champignon"> Champignon<br>
+            <input type="checkbox" id="ingredient7" name="ingredient7" value="Oregano"> Orégano <br>
+        </ul>
+        <hr>
+        <p>Selecione as Bebidas:</p>
+        <hr>
+        <ul>
+            <input type="checkbox" id="Bebida1" name="Bebida1" value="Guaraná"> Guaraná <br>
+            <input type="checkbox" id="Bebida2" name="Bebida2" value="Coca-Cola"> Cola-Cola <br>
+            <input type="checkbox" id="Bebida3" name="Bebida3" value="Dolly"> Dolly <br>
+            <input type="checkbox" id="Bebida4" name="Bebida4" value="Brahma"> Brahma <br>
+            <input type="checkbox" id="Bebida5" name="Bebida5" value="Nenhuma"> Nenhuma <br>
+        </ul>
+        <input class="Botao" type="submit" value="Cadastrar">
+    </form>
+    <footer>
+        <hr>
+        Copyright &copy;  pizza hub 2024
+    </footer>
+
+    <script>
+        document.getElementById('supplierForm').addEventListener('submit', function(event) {
+            var inputs = this.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"]');
+            inputs.forEach(function(input) {
+                if (input.value.trim() === '') {
+                    input.classList.add('error');
+                } else {
+                    input.classList.remove('error');
+                }
+            });
+
+            var checkboxes = this.querySelectorAll('input[type="checkbox"]');
+            var ingredientChecked = false;
+            checkboxes.forEach(function(checkbox) {
+                if (checkbox.checked) {
+                    ingredientChecked = true;
+                }
+            });
+
+            if (!ingredientChecked) {
+                event.preventDefault();
+                alert('Selecione pelo menos um ingrediente!');
+            }
+        });
+    </script>
+</body>
+</html>
