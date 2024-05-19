@@ -7,23 +7,23 @@
 </head>
 <body>
     <h1>Formulário do Fornecedor:</h1>
-    <form id="supplierForm">
+    <form id="supplierForm" onsubmit="return validarFormulario()">
         <label for="name">Nome:</label><br>
-        <input type="text" id="name" name="Nome"><br>
+        <input type="text" id="name" placeholder="Qualquer"><br>
         <label for="company">CNPJ:</label><br>
-        <input type="text" id="company" name="CNPJ"><br>
+        <input type="text" id="company" placeholder="XX.XXX.XXX/0001-XX" pattern="\[0-9]{2}.[0-9]{3}.[0-9]{3}[/0001]-[0-9]{2}"><br>
         <label for="email">Email:</label><br>
-        <input type="email" id="email" name="Email"><br>
-        <label for="telefone">Telefone:</label><br>
-        <input type="text" id="telefone" maxlength="15" oninput="mascaraTelefone(this)"><br>
+        <input type="email" id="email" placeholder="exemplo@gmail.com"><br>
+        <label for="phone">Telefone:</label><br>
+        <input type="tel" id="phone" placeholder="(11) 12345-6789" pattern="\([0-9]{2}\) [0-9]{5}-[0-9]{4}"><br>
         <label for="address">Endereço:</label><br>
-        <input type="text" id="address" name="Endereço"><br>
+        <input type="text" id="address" placeholder="Qualquer"><br>
         <label for="city">Cidade:</label><br>
-        <input type="text" id="city" name="Cidade"><br>
+        <input type="text" id="city" placeholder="Qualquer"><br>
         <label for="state">Estado:</label><br>
-        <input type="text" id="state" name="Estado"><br>
+        <input type="text" id="state" placeholder="Qualquer"><br>
         <label for="zip">CEP:</label><br>
-        <input type="text" id="zip" name="CEP"><br>
+        <input type="text" id="cep" placeholder="12345-678" pattern="[0-9]{5}-[0-9]{3}"><br>
 
         <h2>Produtos:</h2>
         <hr>
@@ -56,48 +56,93 @@
     </footer>
 
     <script>
-        document.getElementById('supplierForm').addEventListener('submit', function(event) {
-            var inputs = this.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"]');
-            inputs.forEach(function(input) {
-                if (input.value.trim() === '') {
-                    input.classList.add('error');
-                } else {
-                    input.classList.remove('error');
-                }
-            });
+    function validarFormulario() {
+        var name = document.getElementById('name').value.trim();
+        var company = document.getElementById('company').value.trim();
+        var email = document.getElementById('email').value.trim();
+        var address = document.getElementById('address').value.trim();
+        var city = document.getElementById('city').value.trim();
+        var state = document.getElementById('state').value.trim();
+        var phone = document.getElementById('phone').value.trim();
+        var cep = document.getElementById('cep').value.trim();
 
-            var checkboxes = this.querySelectorAll('input[type="checkbox"]');
-            var ingredientChecked = false;
-            checkboxes.forEach(function(checkbox) {
-                if (checkbox.checked) {
-                    ingredientChecked = true;
-                }
-            });
+        var camposValidos = true;
 
-            if (!ingredientChecked) {
-                event.preventDefault();
-                alert('Selecione pelo menos um ingrediente!');
-            }
-        });
-    function mascaraTelefone(input) {
-    let value = input.value;
-    
-    // Remove todos os caracteres não numéricos
-    value = value.replace(/\D/g, "");
-    
-    // Aplica a máscara (xx) xxxxx-xxxx
-    if (value.length > 10) {
-        value = value.replace(/^(\d{2})(\d{5})(\d{4}).*/, "($1) $2-$3");
-    } else if (value.length > 5) {
-        value = value.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, "($1) $2-$3");
-    } else if (value.length > 2) {
-        value = value.replace(/^(\d{2})(\d{0,5})/, "($1) $2");
-    } else if (value.length > 0) {
-        value = value.replace(/^(\d{0,2})/, "($1");
+        if (name === '') {
+            document.getElementById('name').classList.add('error');
+            camposValidos = false;
+        } else {
+            document.getElementById('name').classList.remove('error');
+        }
+
+        var companyRegex = /^\d{2}\.\d{3}\.\d{3}\/0001-\d{2}$/;
+        var camposValidos = true;
+        if (!companyRegex.test(company)) {
+        document.getElementById('company').classList.add('error');
+        camposValidos = false;
+        } else {
+        document.getElementById('company').classList.remove('error');
+        }
+
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+        document.getElementById('email').classList.add('error');
+        camposValidos = false;
+        } else {
+        document.getElementById('email').classList.remove('error');
+        }
+
+        var telefoneRegex = /^\([0-9]{2}\) [0-9]{5}-[0-9]{4}$/;
+        if (!telefoneRegex.test(phone)) {
+            document.getElementById('phone').classList.add('error');
+            camposValidos = false;
+        } else {
+            document.getElementById('phone').classList.remove('error');
+        }
+
+        if (address === '') {
+            document.getElementById('address').classList.add('error');
+            camposValidos = false;
+        } else {
+            document.getElementById('address').classList.remove('error');
+        }
+
+        if (city === '') {
+            document.getElementById('city').classList.add('error');
+            camposValidos = false;
+        } else {
+            document.getElementById('city').classList.remove('error');
+        }
+
+        if (state === '') {
+            document.getElementById('state').classList.add('error');
+            camposValidos = false;
+        } else {
+            document.getElementById('state').classList.remove('error');
+        }
+
+        var cepRegex = /^[0-9]{5}-[0-9]{3}$/;
+        if (!cepRegex.test(cep)) {
+            document.getElementById('cep').classList.add('error');
+            camposValidos = false;
+        } else {
+            document.getElementById('cep').classList.remove('error');
+        }
+
+        if (!camposValidos) {
+            alert('Por favor, preencha todos os campos corretamente.');
+            return false;
+        }
+        
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+        if (checkboxes.length === 0) {
+            alert('Selecione pelo menos um ingrediente!');
+            return false;
+        }
+        
+        alert('Cadastro enviado!');
+        return true;
     }
-    
-    input.value = value;
-}
     </script>
 </body>
 </html>
