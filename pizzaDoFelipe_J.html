@@ -94,6 +94,21 @@
         alert('Por favor, preencha todos os campos corretamente.');
     }
 }
+
+function mostrarsenha(){
+    var senhaInput = document.getElementById('senha');
+    var tipoSenha = senhaInput.getAttribute('type');
+    var olho = document.getElementById('olho');
+
+    if (tipoSenha === 'password') {
+        senhaInput.setAttribute('type', 'text');
+        olho.src ="olho-aberto.png";
+    } else {
+        senhaInput.setAttribute('type', 'password');
+        olho.src ="olho-fechado.png";
+    }
+}
+
 </script>
 <title>Cadastro Funcionário</title>
 </head>
@@ -113,6 +128,8 @@
     <p><label for="number">Número: <input type="text" id="number"></label></p>
     <p><label for="complemento">Complemento: <input type="text" id="complemento"></label></p>
     <p><label for="senha">Digite a sua senha: <input type="password" id="senha"></label></p>
+    <img id="olho" src="olho-fechado.png" alt="Mostrar Senha" width="20" height="20">
+    <input class="Botao" type="button" value="Mostrar Senha" onclick="mostrarsenha()">
     <p><label for="confirmarsenha">Confirmar a sua senha: <input type="password" id="confirmarsenha"></label></p>
     <br>
     <input class="Botao" type="button" value="Cadastrar" onclick="validarFormulario()">
